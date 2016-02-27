@@ -3,16 +3,16 @@ __author__ = 'Artem'
 import cfg
 import socket
 import re
-import bot
+import bot_old
 import time
 
 sock = socket.socket()
 sock.connect((cfg.HOST, cfg.PORT))
-bot.send_pass(sock, cfg.PASS)
-bot.send_nick(sock, cfg.NICK)
-bot.join_channel(sock, cfg.CHAN)
+bot_old.send_pass(sock, cfg.PASS)
+bot_old.send_nick(sock, cfg.NICK)
+bot_old.join_channel(sock, cfg.CHAN)
 
-bot.send_message(sock, "hello")
+bot_old.send_message(sock, "hello")
 
 
 #MAIN LOOP
@@ -30,12 +30,12 @@ while True:
 
             if len(line) >= 1:
                 if line[0] == 'PING':
-                    bot.send_pong(sock, line[1])
+                    bot_old.send_pong(sock, line[1])
 
                 if line[1] == 'PRIVMSG':
-                    username = bot.get_sender(line[0])
-                    message = bot.get_message(line)
-                    bot.check_commands(sock, message, username)
+                    username = bot_old.get_sender(line[0])
+                    message = bot_old.get_message(line)
+                    bot_old.check_commands(sock, message, username)
 
                     print(username + ": " + message)
 
