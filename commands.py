@@ -1,6 +1,6 @@
 __author__ = 'Artem'
 import bot_old
-import cfg
+import cfg_old
 import utils
 
 def command_test(sock, message, username):
@@ -18,12 +18,12 @@ def command_gachi(sock, message, username):
 def command_follow(sock, message, username):
     if message == None or message == "":
         user = username
-        channel = cfg.STREAMER
+        channel = cfg_old.STREAMER
     else:
         msg = message.split(" ")
         if len(msg)<2 or msg[1]=="":
             user = msg[0]
-            channel = cfg.STREAMER
+            channel = cfg_old.STREAMER
         else:
             user = msg[0]
             channel = msg[1]

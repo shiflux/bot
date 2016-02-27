@@ -1,16 +1,16 @@
 __author__ = 'Artem'
 
-import cfg
+import cfg_old
 import socket
 import re
 import bot_old
 import time
 
 sock = socket.socket()
-sock.connect((cfg.HOST, cfg.PORT))
-bot_old.send_pass(sock, cfg.PASS)
-bot_old.send_nick(sock, cfg.NICK)
-bot_old.join_channel(sock, cfg.CHAN)
+sock.connect((cfg_old.HOST, cfg_old.PORT))
+bot_old.send_pass(sock, cfg_old.PASS)
+bot_old.send_nick(sock, cfg_old.NICK)
+bot_old.join_channel(sock, cfg_old.CHAN)
 
 bot_old.send_message(sock, "hello")
 
@@ -40,7 +40,7 @@ while True:
                     print(username + ": " + message)
 
 
-    time.sleep(1 / cfg.RATE)
+    time.sleep(1 / cfg_old.RATE)
 
 
 

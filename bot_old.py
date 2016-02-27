@@ -1,14 +1,14 @@
 __author__ = 'Artem'
-import cfg
+import cfg_old
 import re
 import commands
 
 
 def send_message(sock, msg):
-    sock.send(bytes('PRIVMSG %s :%s\r\n' % (cfg.CHAN, msg), 'UTF-8'))
+    sock.send(bytes('PRIVMSG %s :%s\r\n' % (cfg_old.CHAN, msg), 'UTF-8'))
 
 def send_whisper(sock, msg, user):
-    sock.send(bytes('PRIVMSG %s :/w %s %s\r\n' % (cfg.CHAN, user, msg), 'UTF-8'))
+    sock.send(bytes('PRIVMSG %s :/w %s %s\r\n' % (cfg_old.CHAN, user, msg), 'UTF-8'))
 
 def send_pong(sock, msg):
     sock.send(bytes('PONG %s\r\n' % msg, 'UTF-8'))
