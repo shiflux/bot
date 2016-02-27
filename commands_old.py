@@ -1,7 +1,7 @@
 __author__ = 'Artem'
 import bot_old
 import cfg_old
-import utils
+import utils_old
 
 def command_test(sock, message, username):
     bot_old.send_message(sock, "the test command is working")
@@ -27,7 +27,7 @@ def command_follow(sock, message, username):
         else:
             user = msg[0]
             channel = msg[1]
-    time = utils.follow(user, channel)
+    time = utils_old.follow(user, channel)
     if time == False:
         bot_old.send_message(sock, user + " doesn't follow " + channel)
     else:

@@ -1,7 +1,7 @@
 __author__ = 'Artem'
 import cfg_old
 import re
-import commands
+import commands_old
 
 
 def send_message(sock, msg):
@@ -43,8 +43,8 @@ def check_commands(sock, message, username):
         return
     elif len(msg) <2:
         msg.append(None)
-    if msg[0] in commands.options:
-        commands.options[msg[0]](sock, msg[1], username)
+    if msg[0] in commands_old.options:
+        commands_old.options[msg[0]](sock, msg[1], username)
 
 def get_sender(msg):
     result = ""
