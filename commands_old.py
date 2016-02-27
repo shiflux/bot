@@ -1,7 +1,7 @@
 __author__ = 'Artem'
 import bot_old
-import cfg
-import utils
+import cfg_old
+import utils_old
 
 def command_test(sock, message, username):
     bot_old.send_message(sock, "the test command is working")
@@ -18,16 +18,16 @@ def command_gachi(sock, message, username):
 def command_follow(sock, message, username):
     if message == None or message == "":
         user = username
-        channel = cfg.STREAMER
+        channel = cfg_old.STREAMER
     else:
         msg = message.split(" ")
         if len(msg)<2 or msg[1]=="":
             user = msg[0]
-            channel = cfg.STREAMER
+            channel = cfg_old.STREAMER
         else:
             user = msg[0]
             channel = msg[1]
-    time = utils.follow(user, channel)
+    time = utils_old.follow(user, channel)
     if time == False:
         bot_old.send_message(sock, user + " doesn't follow " + channel)
     else:
