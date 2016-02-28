@@ -56,8 +56,8 @@ class ChatManager:
     def make_new_connection(self):
         ip, port = self.bot.HOST, self.bot.PORT
         try:
-            newconn = BotServerConnection(self)
-            newconn.connect(ip, port, self.bot.nickname, self.bot.password, self.bot.nickname)
+            newconn = BotServerConnection(self.reactor)
+            newconn.connect(ip, port, self.bot.NICK, self.bot.PASS, self.bot.NICK)
             newconn.cap('REQ', 'twitch.tv/membership')
             newconn.cap('REQ', 'twitch.tv/commands')
             newconn.cap('REQ', 'twitch.tv/tags')
@@ -71,5 +71,7 @@ class ChatManager:
             logging.log.error("No proper data returned when fetching IRC servers")
             return None
 
-    def privmsg(self, message, channel = self.bot.CHAN)
+    def privmsg(self, message, channel=None):
+        if channel == None:
+            channel = self.bot.CHAN
         self.send_connection.conn.privmsg(channel, message)
