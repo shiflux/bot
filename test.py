@@ -51,8 +51,12 @@ import threading
 
 def test():
     b = bot.Bot(1)
+    print("ci")
     b.privmsg("Hello")
-    while(1):
-        pass
+    t = b.init_chat()
+    t.start()
+    t.join()
+
+
 
 test()

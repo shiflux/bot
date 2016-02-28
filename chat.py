@@ -2,6 +2,7 @@ import socket
 import urllib
 import logging
 import random
+import threading
 from irc import client
 
 class BotServerConnection(client.ServerConnection):
@@ -57,6 +58,8 @@ class ChatManager:
         ip, port = self.bot.HOST, self.bot.PORT
         try:
             newconn = BotServerConnection(self.reactor)
+            with self.reactor.mutex:
+                self.reactor.connections.append(newconn)
             newconn.connect(ip, port, self.bot.NICK, self.bot.PASS, self.bot.NICK)
             newconn.cap('REQ', 'twitch.tv/membership')
             newconn.cap('REQ', 'twitch.tv/commands')
