@@ -4,6 +4,7 @@ import time
 import cfg_old
 import threading
 
+
 # def test(b):
 #         b.sock.connect((b.HOST, b.PORT))
 #         b.methods.send_pass()
@@ -51,11 +52,8 @@ import threading
 
 def test():
     b = bot.Bot(1)
-    print("ci")
-    b.privmsg("Hello")
-    t = b.init_chat()
-    t.start()
-    t.join()
+    b.start()
+    #b.privmsg("Hello")
 
 
 
