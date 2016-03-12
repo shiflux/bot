@@ -26,7 +26,7 @@ class Bot:
     def chat_thread(self):
         while(1):
             self.reactor.process_once()
-            time.sleep(0.1)
+            time.sleep(1)
 
     def init_chat(self):
         return threading.Thread(target=self.chat_thread())
