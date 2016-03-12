@@ -6,7 +6,7 @@ NICK = "weeeebot"            # your Twitch username, lowercase
 PASS = "oauth:c35jmcnxnnwbhcuba80kfsvd2dx98p" # your Twitch OAuth token
 CHAN = "#shiflux"                   # the channel you want to join
 STREAMER = "shiflux"
-RATE = (20/30) # messages per second
+MSG_LIMIT = (19) # messages per second
 
 
 PATT = [
@@ -14,6 +14,3 @@ PATT = [
     # ...
     r"some_pattern"
 ]
-
-#POINTS BOT
-SLEEP_TIME = 120

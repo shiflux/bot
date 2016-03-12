@@ -12,6 +12,7 @@ class bot_methods:
         self.bot.PASS = cfg_old.PASS
         self.bot.NICK = cfg_old.NICK
         self.bot.CHAN = cfg_old.CHAN
+        self.bot.MSG_LIMIT = cfg_old.MSG_LIMIT
 
     def send_message(self, msg):
         self.bot.sock.send(bytes('PRIVMSG %s :%s\r\n' % (self.bot.CHAN, msg), 'UTF-8'))

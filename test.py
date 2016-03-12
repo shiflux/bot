@@ -3,7 +3,8 @@ import re
 import time
 import cfg_old
 import threading
-
+import logging
+import sys
 # def test(b):
 #         b.sock.connect((b.HOST, b.PORT))
 #         b.methods.send_pass()
@@ -50,6 +51,8 @@ import threading
 #     th.join()
 
 def test():
+    logging.getLogger().setLevel(logging.DEBUG)
+    logging.StreamHandler(sys.stdout)
     b = bot.Bot(1)
     print("ci")
     b.privmsg("Hello")
